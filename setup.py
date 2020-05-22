@@ -12,6 +12,10 @@ with open('CHANGELOG.md') as history_file:
 with open('VERSION') as version_file:
     version = version_file.read()
 
+# remove the heading 'v', e.g. v1.0.0
+if version.startswith('v'):
+    version = version[1:]
+
 requirements = [
     'requests',
     'assertpy',
