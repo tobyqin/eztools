@@ -4,5 +4,8 @@ assertpy>=1.0
 
 # for development
 pytest>5.4
+pytest-pep8>=1.0
+pytest-cov>=2.8
+pytest-flakes>=4.0
 wheel>0.34
 twine>=3.1

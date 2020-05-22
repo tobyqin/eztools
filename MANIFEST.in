@@ -1,5 +1,6 @@
 include coverage.rc
 include LICENSE
+include VERSION
 include MANIFEST.in
 include pytest.ini
 include README.md

@@ -22,8 +22,8 @@ classifiers = ["License :: OSI Approved :: MIT License",
                "Topic :: Software Development",
                "Topic :: Utilities",
                "Operating System :: Microsoft :: Windows",
-               "Operating System :: MacOS :: MacOS X"] + [
-                  ("Programming Language :: Python :: %s" % x) for x in "3.4 3.5 3.6 3.7 3.8".split()]
+               "Operating System :: MacOS :: MacOS X"] + \
+              [("Programming Language :: Python :: %s" % x) for x in "3.5 3.6 3.7 3.8".split()]
 
 setup(
     name='eztools',
@@ -40,6 +40,6 @@ setup(
     license="MIT license",
     keywords='eztools,handy,utils,utility',
     classifiers=classifiers,
-    test_suite='tests.default',
+    test_suite='tests',
     zip_safe=False
 )
