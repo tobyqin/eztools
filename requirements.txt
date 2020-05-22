@@ -1,2 +1,8 @@
 requests>=2.23
 arrow>=0.15
+assertpy>=1.0
+
+# for development
+pytest>5.4
+wheel>0.34
+twine>=3.1

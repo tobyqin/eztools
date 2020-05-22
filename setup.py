@@ -1,35 +1,45 @@
-import os
-import sys
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import setuptools
+from setuptools import setup, find_packages
 
-# To prevent importing about and thereby breaking the coverage info we use this
-# exec hack
-about = {}
-with open('eztools/__about__.py') as fp:
-    exec(fp.read(), about)
+with open('README.md') as readme_file:
+    readme = readme_file.read()
 
-if os.path.isfile('README.md'):
-    long_description = open('README.md').read()
-else:
-    long_description = 'See http://pypi.python.org/pypi/eztools/'
+with open('CHANGELOG.md') as history_file:
+    history = history_file.read()
 
-needs_pytest = set(['ptr', 'pytest', 'test']).intersection(sys.argv)
-pytest_runner = ['pytest-runner'] if needs_pytest else []
+with open('VERSION') as version_file:
+    version = version_file.read()
 
-if __name__ == '__main__':
-    setuptools.setup(
-        name='eztools',
-        version=about['__version__'],
-        author=about['__author__'],
-        author_email=about['__author_email__'],
-        description=about['__description__'],
-        url=about['__url__'],
-        license='MIT',
-        packages=setuptools.find_packages(),
-        long_description=long_description,
-        install_requires=['requests', 'arrow'],
-        tests_require=['pytest'],
-        setup_requires=[] + pytest_runner,
-        classifiers=['License :: OSI Approved :: MIT License'],
-    )
+requirements = [
+    'requests',
+    'assertpy',
+    'arrow'
+]
+
+classifiers = ["License :: OSI Approved :: MIT License",
+               "Topic :: Software Development",
+               "Topic :: Utilities",
+               "Operating System :: Microsoft :: Windows",
+               "Operating System :: MacOS :: MacOS X"] + [
+                  ("Programming Language :: Python :: %s" % x) for x in "3.4 3.5 3.6 3.7 3.8".split()]
+
+setup(
+    name='eztools',
+    version=version,
+    description="A handy module for Python programming, to make my life easier.",
+    long_description=readme + '\n\n' + history,
+    long_description_content_type="text/markdown",
+    author="Toby Qin",
+    author_email='toby.qin@live.com',
+    url='https://github.com/tobyqin/eztools',
+    packages=find_packages(exclude=['tests', 'tests.*']),
+    package_data={"eztools": ["data/*.*"]},
+    install_requires=requirements,
+    license="MIT license",
+    keywords='eztools,handy,utils,utility',
+    classifiers=classifiers,
+    test_suite='tests.default',
+    zip_safe=False
+)

@@ -2,7 +2,7 @@ include coverage.rc
 include LICENSE
 include MANIFEST.in
 include pytest.ini
-include README.rst
+include README.md
 include requirements.txt
 include setup.cfg
 include setup.py
