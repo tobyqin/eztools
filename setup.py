@@ -23,7 +23,7 @@ classifiers = ["License :: OSI Approved :: MIT License",
                "Topic :: Utilities",
                "Operating System :: Microsoft :: Windows",
                "Operating System :: MacOS :: MacOS X"] + \
-              [("Programming Language :: Python :: %s" % x) for x in "3.5 3.6 3.7 3.8".split()]
+              [("Programming Language :: Python :: %s" % x) for x in "3.6 3.7 3.8".split()]
 
 setup(
     name='eztools',
