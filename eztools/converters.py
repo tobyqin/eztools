@@ -169,7 +169,7 @@ def to_unicode(input_, encoding='utf-8', errors='replace'):
     >>> to_unicode(Foo())
     'a'
     >>> to_unicode(Foo)
-    "<class 'python_utils.converters.Foo'>"
+    "<class 'eztools.converters.Foo'>"
     '''
     if isinstance(input_, six.binary_type):
         input_ = input_.decode(encoding, errors)
@@ -193,7 +193,7 @@ def to_str(input_, encoding='utf-8', errors='replace'):
     >>> to_str(Foo())
     'a'
     >>> to_str(Foo)
-    "<class 'python_utils.converters.Foo'>"
+    "<class 'eztools.converters.Foo'>"
     '''
     if isinstance(input_, six.binary_type):
         pass
