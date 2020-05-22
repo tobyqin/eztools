@@ -2,6 +2,7 @@ import json
 import logging
 from os import environ
 from os.path import basename, getsize, getmtime, splitext, exists
+from pathlib import Path
 
 import arrow
 
@@ -26,3 +27,12 @@ def get_file_info(file_path):
 def env_to_json():
     """convert current env variables to json text."""
     return json.dumps(dict(environ))
+
+
+def read_text(filepath, encoding='utf8'):
+    return Path(filepath).read_text(encoding)
+
+
+def write_text(filepath, data, encoding='utf8', mode='w'):
+    with open(filepath, encoding=encoding, mode=mode) as f:
+        f.write(data)
