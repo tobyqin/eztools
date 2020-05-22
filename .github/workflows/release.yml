@@ -45,6 +45,7 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_PASS }}
         run: |
-          echo ${{ github.ref }} > VERSION
+          printenv | sort
+          echo ${GITHUB_REF##*/} > VERSION
           python setup.py sdist bdist_wheel
           twine upload dist/* --verbose
