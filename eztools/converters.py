@@ -203,3 +203,17 @@ def to_str(input_, encoding='utf-8', errors='replace'):
 
         input_ = input_.encode(encoding, errors)
     return input_
+
+
+def to_bool(value, default=False, raise_error=False):
+    """
+       Converts 'something' to boolean. Raises exception for invalid formats
+           Possible True  values: 1, True, "1", "TRue", "yes", "y", "t"
+           Possible False values: 0, False, None, [], {}, "", "0", "faLse", "no", "n", "f", 0.0, ...
+    """
+    if str(value).lower() in ("yes", "y", "true", "t", "1"): return True
+    if str(value).lower() in ("no", "n", "false", "f", "0", "0.0", "", "none", "[]", "{}", "()"): return False
+    if raise_error:
+        raise ValueError('Invalid value for boolean conversion: ' + str(value))
+    else:
+        return default
